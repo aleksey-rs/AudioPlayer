@@ -1,0 +1,308 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h1 {
+	text-align: center;
+	padding: 1.5rem 0;
+	color: #fff;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #24282a;
+}
+main {
+	min-height: 83vh;
+}
+.container {
+	max-width: 600pt;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header, .footer {
+	padding: 1.5rem 0;
+	background: #2fb5d2;
+}
+
+.footer__list {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	color: #fff;
+}
+
+.footer__list img {
+	width: 5em;
+}
+
+.audio-player {
+	width: 430px;
+	background: linear-gradient(6deg, rgb(40, 40, 40), rgb(133, 133, 133));
+	box-shadow: 0 0 25px #00c3c3;
+	margin: 60px auto;
+	padding: 10px;
+	font-family: arial;
+	color: white;
+	font-size: 0.75em;
+	overflow: hidden;
+  
+	.thumbnails {
+		display: flex;
+		justify-content: center;
+		height: 430px;
+	}
+
+	.cover {
+		width: 100%;
+		background-size: cover;
+	}
+
+	.timeline {
+		margin: 5px 0px 2px;
+	
+	  .progress {
+		background: #2b4dff;
+		width: 100%;
+		height: 100%;
+		transition: 0.25s;
+		cursor: pointer;
+	 	box-shadow: 0 2px 10px 0 rgba(76, 69, 69, 0.533);
+		margin-left: 0;
+		margin-right: 0;
+	  }
+	}
+
+	.time {
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: row;
+		align-items: center;
+		margin-bottom: 10px;
+		> * {
+		  padding: 2px;
+		}
+	  }
+
+	.actions {
+		position: relative;
+	
+		.controls {
+			display: flex;
+			align-items: stretch;
+			justify-content: center;
+			column-gap: 35px;
+		
+			> * {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.toggle-play {
+				&.play {
+				cursor: pointer;
+				position: relative;
+				left: 0;
+				height: 80px;
+				width: 50px;
+				filter: invert(28%) sepia(98%) saturate(5594%) hue-rotate(233deg) brightness(104%) contrast(101%);
+				background: no-repeat url("../assets/svg/play-solid.svg") center;
+
+					&:hover {
+						transform: scale(1.1);
+					}
+
+					&:active {
+						filter: invert(95%) sepia(48%) saturate(2926%) hue-rotate(32deg) brightness(88%) contrast(108%);
+					}
+
+				}
+				&.pause {
+				height: 80px;
+				width: 50px;
+				cursor: pointer;
+				position: relative;
+				filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(126deg) brightness(103%) contrast(101%);
+				background: no-repeat url("../assets/svg/pause-solid.svg") center;
+			
+					&:hover {
+						transform: scale(1.1);
+					}
+
+					&:active {
+						filter: invert(95%) sepia(48%) saturate(2926%) hue-rotate(32deg) brightness(88%) contrast(108%);
+					}
+				}
+			}
+			.back-song {
+				height: 80px;
+				width: 50px;
+				cursor: pointer;
+				position: relative;
+				filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(126deg) brightness(103%) contrast(101%);
+				background: no-repeat url("../assets/svg/backward-solid.svg") center;
+
+				&:hover {
+					filter: invert(28%) sepia(98%) saturate(5594%) hue-rotate(233deg) brightness(104%) contrast(101%);
+					transform: scale(1.1);
+				}
+
+				&:active {
+					filter: invert(95%) sepia(48%) saturate(2926%) hue-rotate(32deg) brightness(88%) contrast(108%);
+				}
+
+			}
+			.next-song {
+				height: 80px;
+				width: 50px;
+				cursor: pointer;
+				position: relative;
+				filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(126deg) brightness(103%) contrast(101%);
+				background: no-repeat url("../assets/svg/forward-solid.svg") center;
+
+				&:hover {
+					filter: invert(28%) sepia(98%) saturate(5594%) hue-rotate(233deg) brightness(104%) contrast(101%);
+					transform: scale(1.1);
+				}
+
+				&:active {
+					filter: invert(95%) sepia(48%) saturate(2926%) hue-rotate(32deg) brightness(88%) contrast(108%);
+				}
+			}
+		}
+		
+		.stop-container {
+			position: absolute;
+			top: 15px;
+			left: 380px;
+
+			.stop-song {
+				height: 50px;
+				width: 50px;
+				flex: none;
+				cursor: pointer;
+				position: relative;
+				filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(126deg) brightness(103%) contrast(101%);
+				background: no-repeat url("../assets/svg/stop-solid.svg") center;
+		
+				&:hover {
+					filter: invert(28%) sepia(98%) saturate(5594%) hue-rotate(233deg) brightness(104%) contrast(101%);
+					transform: scale(1.1);
+				}
+
+				&:active {
+					filter: invert(95%) sepia(48%) saturate(2926%) hue-rotate(32deg) brightness(88%) contrast(108%);
+				}
+			}
+		}
+	}
+
+	.description {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 10px 0px 2px;
+	
+		.song-artist {
+			color:rgb(118 231 18);
+			font-size: 16px;
+		}
+		.song-title {
+			font-size: 14px;
+		}
+
+		.volume-container {
+			cursor: pointer;
+			position: relative;
+			z-index: 2;
+	
+				.volume-button {
+					height: 26px;
+					display: flex;
+					align-items: center;
+						.volume {
+							transform: scale(0.7);
+						}
+	
+						.icono-volumeMedium {
+							width: 34px;
+							height: 26px;
+							filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(126deg) brightness(103%) contrast(101%);
+							background: no-repeat url("../assets/svg/volume-high-solid.svg") center;
+						}
+	
+						.icono-volumeMute {
+							width: 34px;
+							height: 26px;
+							filter: invert(27%) sepia(97%) saturate(5152%) hue-rotate(352deg) brightness(87%) contrast(134%);
+							background: no-repeat url("../assets/svg/volume-xmark-solid.svg") center;
+						}
+	
+				}
+			
+				.volume-slider {
+					position: absolute;
+					left: -3px; 
+					top: 9px;
+					z-index: -1;
+					width: 0;
+					height: 10px;
+					background: white;
+					box-shadow: 0 0 20px #000a;
+					transition: .25s;
+						.volume-percentage {
+							background: #2b4dff;
+							height: 100%;
+							width: 75%;
+						}
+				}
+				&:hover {
+					.volume-slider {
+						left: -123px;
+						width: 120px;
+					}
+				}
+		  }
+		  
+	}
+	
+  }
+
